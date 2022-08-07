@@ -46,11 +46,10 @@ syn match MdLinkBodyContent '!\?[^\]\[]*' contained contains=MdLinkParen,MdLinkB
 syn match MdLinkParen '\(!\?\[\|\]\)' conceal contained
 
 " Md checklist
-syn match MdCheckboxHead '^\s*-\s\[.\]\s' nextgroup=MdCheckboxTextFilled contains=MdCheckBox
-syn match MdCheckBox '-\s\[.\]' contains=MdCheckChar contained
+syn match MdCheckboxHead '^\s*\*\s\[.\]\s' nextgroup=MdCheckboxTextFilled contains=MdCheckBox
+syn match MdCheckBox '\*\s\[.\]' contains=MdCheckChar,MdDot contained
 syn match MdCheckChar 'x' conceal cchar=✓ contained
 syn match MdCheckChar 'X' conceal cchar=✓ contained
-syn match MdCheckChar 'v' conceal cchar=✓ contained
 
 syn match MdCheckboxTextFilled '.*' contained
 
@@ -87,25 +86,25 @@ syn match MdSepChar '*' contained conceal cchar=─
 syn match MdSepChar '_' contained conceal cchar=─
 
 set conceallevel=2
-hi Conceal gui=none ctermfg=7
-hi link MdH1 htmlH1
-hi link MdH2 htmlH2
-hi link MdH3 htmlH3
-hi link MdH4 htmlH4
-hi link MdH5 htmlH5
-hi link MdH6 htmlH6
+hi Conceal gui=none ctermfg=White
+hi MdH1 cterm=bold ctermfg=Red
+hi MdH2 cterm=bold ctermfg=Magenta
+hi MdH3 cterm=bold ctermfg=Yellow
+hi MdH4 cterm=bold ctermfg=Cyan
+hi MdH5 cterm=bold ctermfg=Cyan
+hi MdH6 cterm=bold ctermfg=Cyan
 hi link MdQuote Comment
 hi link MdDot Conceal
 hi link MdNumberedListHeader MdDot
-hi link MdWikilink Blue
-hi link MdLinkBodyContent Blue
+hi MdWikilink ctermfg=Blue
+hi MdLinkBodyContent ctermfg=Blue
 hi link MdLinkRef htmlLink
 hi link MdLinkParen Conceal
 hi link MdCheckBox Conceal
 hi link MdCheckChar Conceal
 hi link MdCheckboxTextFilled Comment
-hi link MdPre String
+hi MdPre ctermfg=Green
 hi link MdTable Conceal
 hi link MdTableColumn Conceal
-hi MdCoursieve cterm=italic gui=italic 
-hi link MdBold htmlBold
+hi MdCoursieve cterm=italic
+hi MdBold cterm=bold
